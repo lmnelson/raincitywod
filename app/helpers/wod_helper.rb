@@ -1,0 +1,2 @@
+module WodHelper
+end
