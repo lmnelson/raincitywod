@@ -2,13 +2,16 @@
   <div class="card">
     <div class="date">
       <span class="day-of-week">
-        <%= t.created_at.tomorrow.strftime("%A") %>
+        <%= t.date.to_datetime.strftime("%A") %>
       </span>
       <span class="date-of-month">
-        <%= t.created_at.tomorrow.strftime("%b %d") %>
+        |
+        <%= t.date.to_datetime.strftime('%b %d') %>
       </span>
     </div>
-   <%=raw t.description %>
+
+    <%=raw t.description %>
+
   </div>
 <% end %>
 
