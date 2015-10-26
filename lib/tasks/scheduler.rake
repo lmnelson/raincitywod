@@ -16,6 +16,7 @@ task :fetch_wod => :environment do
 
   # TODO: If the WOD is not created the day before this will not work.
   #       Show a placeholder 'waiting for WOD to be posted'
+  #       Create seed file.
 
 
   # Raincity uses the 2015-11-30 date format in their url
@@ -30,6 +31,7 @@ task :fetch_wod => :environment do
   wod = doc.css(".workout").to_s
 
   # Get last WOD description to check for duplicates.
+  # Needs to be 1 WOD in database to work.
   lastWod = Wod.all.last.description
 
   # Check that this WOD content is not the same as the last.
@@ -41,6 +43,5 @@ task :fetch_wod => :environment do
   if wod.present? && !duplicateWod?(wod, lastWod)
     Wod.create(title: "", description: wod, date: raincityTomorrowWodDate)
   end
-
 
 end
