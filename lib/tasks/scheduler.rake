@@ -41,7 +41,7 @@ task :fetch_wod => :environment do
 
   # Create WOD if present and not duplicate
   if wod.present? && !duplicateWod?(wod, lastWod)
-    Wod.create(title: "", description: wod, date: raincityTomorrowWodDate)
+    Wod.create(title: "", description: wod, date: raincityTomorrowWodDate, box_id: 1)
   end
 
 end
