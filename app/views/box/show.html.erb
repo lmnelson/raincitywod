@@ -1,0 +1,30 @@
+<!-- Box Nav -->
+<div class="col col-25">
+  <nav class="l-boxes-navbar">
+    <ul class="nav nav-vertical nav-pills">
+      <% @boxes.each do |box| %>
+        <li class="<%= active_class(box_path(box)) %>"><%= link_to "#{box.name}", box_path(box) %></li>
+      <% end %>
+    </ul>
+  </nav>
+</div>
+
+<!-- Box Wods -->
+<div class="col col-50">
+  <% @wod.each do |wod| %>
+    <div class="card">
+      <div class="date">
+        <span class="day-of-week">
+          <%= wod.date.to_datetime.strftime("%A") %>
+        </span>
+        <span class="date-of-month">
+          |
+          <%= wod.date.to_datetime.strftime('%b %d') %>
+        </span>
+      </div>
+      <%=raw wod.description %>
+    </div>
+  <% end %>
+</div>
+
+<!-- Archive -->

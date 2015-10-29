@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get '/' => 'wod#index'
+  get '/'         => 'box#show', :id => '1'
+
+  resources :box
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

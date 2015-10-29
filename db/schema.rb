@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026021341) do
+ActiveRecord::Schema.define(version: 20151029040709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boxes", force: :cascade do |t|
+    t.string   "name"
+    t.text     "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "wods", force: :cascade do |t|
     t.string   "title"
@@ -22,6 +29,10 @@ ActiveRecord::Schema.define(version: 20151026021341) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "date"
+    t.integer  "box_id"
   end
 
+  add_index "wods", ["box_id"], name: "index_wods_on_box_id", using: :btree
+
+  add_foreign_key "wods", "boxes"
 end
