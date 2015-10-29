@@ -1,5 +1,5 @@
 class WodController < ApplicationController
   def index
-    @wod = Wod.all().order(created_at: :desc)
+    @wod = Wod.all().order(id: :desc)
   end
 end
