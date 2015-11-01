@@ -36,7 +36,10 @@ body {
   padding: 0 25px;
   margin: 0 auto;
 }
-
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 //
 // Layout
@@ -82,7 +85,6 @@ body {
   box-shadow: 0 3px 6px rgba(0,0,0,.1);
   box-sizing: border-box;
 
-  // Typography specific to cards
   hr {
     border-style: none;
   }
