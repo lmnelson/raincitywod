@@ -1,3 +1,6 @@
+require "#{Rails.root}/app/helpers/application_helper"
+include ApplicationHelper
+
 desc "Fetches WODS from websites"
 task :fetch_wod => :environment do
 

@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//toggle .is-expaned class on global-nav
+function toggleNav(){
+  $('.global-navbar').toggleClass('is-expanded');
+}

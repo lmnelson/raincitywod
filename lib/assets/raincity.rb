@@ -27,11 +27,6 @@ raincityWod = raincity.css(".workout").to_s
 # Needs to be 1 WOD in database to work.
 raincityLastWod = Wod.where('box_id = 1').last.description
 
-# Check that this WOD content is not the same as the last.
-def duplicateWod?(thisWod, lastWod)
-  thisWod == lastWod
-end
-
 # Create WOD if present and not duplicate
 if raincityWod.present? && !duplicateWod?(raincityWod, raincityLastWod)
   Wod.create(title: "", description: raincityWod, date: raincityTomorrowWodDate, box_id: 1)

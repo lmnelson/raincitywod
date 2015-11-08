@@ -10,11 +10,12 @@ cfFormattedDate = Date.strptime(cfDate, '%B %e, %Y')
 
 cfDesc = cf.css("tr[1] .blogbody").first.to_s
 
-cfLastWod = Wod.where('box_id = 3').last.description
-
-def duplicateWod?(thisWod, lastWod)
-  thisWod == lastWod
+if !Wod.exists?(box_id: 3)
+  Wod.create(title: "", description: cfDesc, date: cfDate, box_id: 3)
 end
+
+
+cfLastWod = Wod.where('box_id = 3').last.description
 
 if !duplicateWod?(cfDesc, cfLastWod)
   Wod.create(title: "", description: cfDesc, date: cfDate, box_id: 3)

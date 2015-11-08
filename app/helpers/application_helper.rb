@@ -4,4 +4,8 @@ module ApplicationHelper
     current_page?(link_path) ? "active" : ""
   end
 
+  def duplicateWod?(thisWod, lastWod)
+    thisWod == lastWod
+  end
+
 end

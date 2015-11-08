@@ -13,16 +13,20 @@
 <div class="col col-50">
   <% @wod.each do |wod| %>
     <div class="card <%= @box.name.downcase.gsub(/\s+/, "-") %>">
-      <div class="date">
-        <span class="day-of-week">
-          <%= wod.date.to_datetime.strftime("%A") %>
-        </span>
-        <span class="date-of-month">
-          |
-          <%= wod.date.to_datetime.strftime('%b %d') %>
-        </span>
+      <div class="card-heading">
+        <div class="date">
+          <span class="day-of-week">
+            <%= wod.date.to_datetime.strftime("%A") %>
+          </span>
+          <span class="date-of-month">
+            |
+            <%= wod.date.to_datetime.strftime('%b %d') %>
+          </span>
+        </div>
       </div>
-      <%=raw wod.description %>
+      <div class="card-body">
+        <%=raw wod.description %>
+      </div>
     </div>
   <% end %>
 </div>
