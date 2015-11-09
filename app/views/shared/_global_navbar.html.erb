@@ -1,7 +1,9 @@
 <nav class="global-navbar">
   <div class="nav-heading">
     <h1 class="nav-title"><%= @box.name %></h1>
-    <button class="btn nav-action nav-action-right" onclick="toggleNav()">Open/Close</button>
+    <button class="btn nav-action nav-action-right" onclick="toggleNav()">
+      <i class="zmdi zmdi-chevron-down zmdi-hc-2x"></i>
+    </button>
   </div>
   <ul class="nav-dropdown nav">
     <% @boxes.each do |box| %>

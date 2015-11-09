@@ -16,7 +16,7 @@ $month-color: #B0BEC5;
 
 $container-width: 850px;
 $gutter-width: 20px;
-$nav-heading-height: 60px;
+$nav-heading-height: 54px;
 $global-nav-bg: #E53935;
 $global-nav-color: #fff;
 $global-nav-border-color: #C73330;
@@ -46,9 +46,14 @@ body {
 }
 .container {
   display: flex;
-  max-width: $container-width;
+  flex-direction: column;
   padding: 0 25px;
   margin: 0 auto;
+  width: 100%;
+  @media(min-width: 768px){
+    max-width: $container-width;
+    flex-direction: row;
+  }
 }
 img {
   max-width: 100%;
@@ -62,14 +67,24 @@ img {
 // Grid
 .col {
   position: relative;
-  padding-left: $gutter-width;
-  padding-right: $gutter-width;
+  display: block;
+  padding: 0;
+  width: 100%;
+  @media(min-width: 768px){
+    display: inline-block;
+    padding-left: $gutter-width;
+    padding-right: $gutter-width;
+  }
 }
 .col-25 {
-  width: 25%;
+  @media(min-width: 768px){
+    width: 25%;
+  }
 }
 .col-50 {
-  width: 50%;
+  @media(min-width: 768px){
+    width: 50%;
+  }
 }
 
 .l-boxes-navbar {
@@ -156,14 +171,15 @@ img {
   box-shadow: 0 2px 2px #ddd;
   &.is-expanded {
     height: 100%;
-    opacity: .95;
   }
   .btn {
     background: $global-nav-bg;
     border: none;
     outline: none;
     font-size: 14px;
-    padding: 0 10px;
+    padding: 0 20px;
+    color: #fff;
+    i {vertical-align: middle;}
   }
 }
 .nav-heading {
@@ -171,6 +187,7 @@ img {
   align-items: center;
   position: relative;
   height: $nav-heading-height;
+  font-size: 13px;
 }
 .nav-title {
   padding: 0;
@@ -239,3 +256,5 @@ img {
 
 
 
+
+@import 'boxes/boxes'

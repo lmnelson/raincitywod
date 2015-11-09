@@ -3,5 +3,10 @@
  */
 
 .crossfit-official {
-
+  .title {
+    display: none;
+  }
+  .blogbody p:first-of-type {
+    margin-top: 0;
+  }
 }
