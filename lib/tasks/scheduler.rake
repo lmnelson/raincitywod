@@ -9,9 +9,10 @@ task :fetch_wod => :environment do
   require 'openssl'
 
   # boxes
-  require 'assets/crossfit_official'
-  require 'assets/mayhem'
-  require 'assets/raincity'
+  # require 'assets/crossfit_official'
+  # require 'assets/mayhem'
+  # require 'assets/raincity'
+  require 'assets/norcal'
 
 end
 
@@ -46,7 +47,6 @@ task :fetch_wod_test => :environment do
     element = websites.values.second
     getWod(url, element)
   end
-
 
 
   # def lastWod(boxId)

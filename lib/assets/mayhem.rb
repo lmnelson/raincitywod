@@ -8,8 +8,10 @@ mayhem = Nokogiri::HTML(open(mayhemUrl))
 mayhemWod = mayhem.css("article").first
 mayhemWod.search(".sharedaddy").remove
 
+# date
 mayhemDate = mayhemWod.css(".entry-title a").text.to_s
 mayhemFormattedDate = Date.strptime(mayhemDate, '%m/%d/%Y')
+
 mayhemDesc = mayhemWod.css(".entry-content").to_s
 
 if !Wod.exists?(box_id: 2)
