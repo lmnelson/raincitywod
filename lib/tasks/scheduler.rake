@@ -9,9 +9,9 @@ task :fetch_wod => :environment do
   require 'openssl'
 
   # boxes
-  # require 'assets/crossfit_official'
-  # require 'assets/mayhem'
-  # require 'assets/raincity'
+  require 'assets/crossfit_official'
+  require 'assets/mayhem'
+  require 'assets/raincity'
   require 'assets/norcal'
 
 end
