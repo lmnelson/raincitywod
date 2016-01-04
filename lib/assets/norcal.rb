@@ -2,6 +2,8 @@
 # NorCal
 # --------------------------------------------
 
+require 'time'
+
 # url
 norcalUrl = "http://www.norcalcrossfit.com/wod/"
 norcal = Nokogiri::HTML(open(norcalUrl))
@@ -12,8 +14,9 @@ norcalDesc = norcalWod.css(".summary-excerpt").to_s
 
 # date
 norcalDate = norcalWod.css(".summary-title a").xpath('@href').text
-norcalDateAdjust = norcalDate.match('(\d+)[-.\/](\d+)[-.\/](\d+)').to_s
-norcalFormattedDate = Date.strptime(norcalDateAdjust, '%Y/%m/%d')
+norcalDateAdjust = norcalDate.split('/').last.to_s
+norcalDateParse = Time.parse(norcalDateAdjust)
+norcalFormattedDate = norcalDateParse.strftime("%m/%d/%Y")
 
 if !Wod.exists?(box_id: 4)
   Wod.create(title: "", description: norcalDesc, date: norcalFormattedDate, box_id: 4)
